@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposal to Dr. Rad | PhD Applicant — Laxmi Hulyalkar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8f6f1;
+      --ink: #1a1612;
+      --deep: #2c1f14;
+      --purple: #4b2c6e;
+      --gold: #9a6b2f;
+      --gold-light: #c9973f;
+      --muted: #7a7065;
+      --border: rgba(75, 44, 110, 0.15);
+      --card-bg: #ffffff;
+      --accent-bg: rgba(75, 44, 110, 0.05);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* Grain texture */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(248, 246, 241, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 62px;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      color: var(--purple);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--purple); }
+
+    .nav-cta {
+      background: var(--purple) !important;
+      color: white !important;
+      padding: 7px 18px;
+      border-radius: 4px;
+      transition: opacity 0.2s !important;
+    }
+
+    .nav-cta:hover { opacity: 0.85 !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 100px 60px 80px;
+      position: relative;
+      overflow: hidden;
+      gap: 60px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 70% at 80% 50%, rgba(75,44,110,0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 10% 90%, rgba(154,107,47,0.06) 0%, transparent 55%);
+    }
+
+    .hero-ornament {
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 500px; height: 500px;
+      border: 1px solid rgba(75,44,110,0.08);
+      border-radius: 50%;
+    }
+
+    .hero-ornament-2 {
+      position: absolute;
+      top: -20px; right: -20px;
+      width: 380px; height: 380px;
+      border: 1px solid rgba(75,44,110,0.06);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(75,44,110,0.08);
+      border: 1px solid rgba(75,44,110,0.2);
+      color: var(--purple);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 5px; height: 5px;
+      background: var(--purple);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 4.5vw, 4rem);
+      line-height: 1.12;
+      color: var(--deep);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--purple);
+    }
+
+    .hero-sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 500px;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 36px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      border-left: 2px solid var(--gold);
+      padding-left: 14px;
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--deep);
+      line-height: 1;
+      font-weight: 600;
+    }
+
+    .stat-label {
+      font-size: 0.68rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-top: 4px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--purple);
+      color: white;
+      padding: 13px 26px;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(75,44,110,0.25);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(75,44,110,0.3);
+      color: var(--purple);
+      padding: 13px 26px;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(75,44,110,0.06);
+      border-color: var(--purple);
+    }
+
+    /* HERO RIGHT — alignment table */
+    .hero-table-wrap {
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 0.8s 0.15s ease both;
+    }
+
+    .hero-table-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .align-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(26,22,18,0.08);
+    }
+
+    .align-table thead tr {
+      background: var(--purple);
+      color: white;
+    }
+
+    .align-table th {
+      padding: 14px 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-align: left;
+    }
+
+    .align-table td {
+      padding: 12px 20px;
+      font-size: 0.8rem;
+      line-height: 1.55;
+      border-bottom: 1px solid rgba(75,44,110,0.08);
+      color: var(--ink);
+      vertical-align: top;
+    }
+
+    .align-table tr:last-child td { border-bottom: none; }
+
+    .align-table tr:nth-child(even) td { background: var(--accent-bg); }
+
+    .align-table td:first-child {
+      font-weight: 600;
+      color: var(--purple);
+      width: 38%;
+    }
+
+    /* ── SECTION SHARED ── */
+    section {
+      padding: 96px 60px;
+      position: relative;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+      margin-bottom: 14px;
+      line-height: 1.2;
+      color: var(--deep);
+      font-weight: 600;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      font-size: 0.92rem;
+      max-width: 560px;
+      line-height: 1.75;
+      margin-bottom: 52px;
+    }
+
+    .divider {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(75,44,110,0.15), transparent);
+      margin: 0 60px;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--bg); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: #3a342e;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .about-text p strong { color: var(--deep); font-weight: 600; }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .skill-chip {
+      background: var(--card-bg);
+      border: 1px solid rgba(75,44,110,0.15);
+      border-radius: 6px;
+      padding: 9px 13px;
+      font-size: 0.75rem;
+      color: #3a342e;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .skill-chip:hover {
+      border-color: var(--purple);
+      background: rgba(75,44,110,0.04);
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid rgba(75,44,110,0.12);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 20px;
+      transition: all 0.25s;
+      box-shadow: 0 2px 12px rgba(26,22,18,0.04);
+    }
+
+    .card:hover {
+      border-color: rgba(75,44,110,0.35);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 32px rgba(75,44,110,0.1);
+    }
+
+    .card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      color: var(--deep);
+      font-weight: 600;
+    }
+
+    .card ul { list-style: none; padding: 0; }
+
+    .card ul li {
+      padding: 5px 0 5px 18px;
+      color: #3a342e;
+      font-size: 0.86rem;
+      line-height: 1.65;
+      position: relative;
+    }
+
+    .card ul li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--purple);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .card-meta {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(75,44,110,0.07);
+      border: 1px solid rgba(75,44,110,0.18);
+      color: var(--purple);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin: 4px 4px 4px 0;
+    }
+
+    .tag-gold {
+      background: rgba(154,107,47,0.08);
+      border-color: rgba(154,107,47,0.25);
+      color: var(--gold);
+    }
+
+    /* ── REGULATORY ── */
+    #regulatory { background: #f0ede6; }
+
+    .reg-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--bg); }
+
+    .timeline { position: relative; padding-left: 30px; }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, var(--purple), transparent);
+    }
+
+    .timeline-item { position: relative; margin-bottom: 40px; }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -36px; top: 8px;
+      width: 10px; height: 10px;
+      background: var(--purple);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(75,44,110,0.15);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .timeline-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      color: var(--deep);
+      font-weight: 600;
+    }
+
+    .timeline-period {
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-weight: 500;
+      background: rgba(75,44,110,0.07);
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    .timeline-org {
+      font-size: 0.8rem;
+      color: var(--purple);
+      font-weight: 600;
+      margin-bottom: 14px;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── MRI SECTION ── */
+    #mri { background: #f0ede6; }
+
+    .mri-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    /* ── ICP HIGHLIGHT ── */
+    .icp-highlight {
+      background: linear-gradient(135deg, rgba(75,44,110,0.06), rgba(154,107,47,0.04));
+      border: 1px solid rgba(75,44,110,0.2);
+      border-radius: 12px;
+      padding: 32px;
+      margin-top: 24px;
+      position: relative;
+    }
+
+    .icp-highlight::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--purple), var(--gold));
+      border-radius: 12px 12px 0 0;
+    }
+
+    .icp-highlight h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--purple);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .icp-highlight p {
+      color: #3a342e;
+      font-size: 0.88rem;
+      line-height: 1.72;
+    }
+
+    .icp-stats {
+      display: flex;
+      gap: 36px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .icp-stat { text-align: center; }
+
+    .icp-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .icp-stat-label {
+      font-size: 0.68rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── RESEARCH ── */
+    #research { background: var(--bg); }
+
+    .research-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(75,44,110,0.12);
+      border-radius: 12px;
+      padding: 36px;
+      box-shadow: 0 2px 16px rgba(26,22,18,0.05);
+    }
+
+    .research-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--deep);
+      margin-bottom: 10px;
+      line-height: 1.4;
+      font-weight: 600;
+    }
+
+    .research-authors {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .research-authors strong { color: var(--purple); }
+
+    .research-abstract {
+      color: #3a342e;
+      font-size: 0.9rem;
+      line-height: 1.75;
+      border-top: 1px solid rgba(75,44,110,0.1);
+      padding-top: 20px;
+      margin-top: 20px;
+    }
+
+    /* ── FIT ── */
+    #fit { background: #f0ede6; }
+
+    .fit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .fit-item {
+      display: flex;
+      gap: 16px;
+      padding: 20px;
+      background: var(--card-bg);
+      border: 1px solid rgba(75,44,110,0.12);
+      border-radius: 10px;
+      transition: all 0.2s;
+      box-shadow: 0 2px 8px rgba(26,22,18,0.04);
+    }
+
+    .fit-item:hover {
+      border-color: rgba(75,44,110,0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(75,44,110,0.1);
+    }
+
+    .fit-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+
+    .fit-item h4 {
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--deep);
+    }
+
+    .fit-item p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── AWARDS ── */
+    #awards { background: var(--bg); }
+
+    .awards-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .award-card {
+      flex: 1;
+      min-width: 200px;
+      background: var(--card-bg);
+      border: 1px solid rgba(75,44,110,0.12);
+      border-radius: 12px;
+      padding: 26px;
+      text-align: center;
+      transition: all 0.25s;
+      box-shadow: 0 2px 10px rgba(26,22,18,0.04);
+    }
+
+    .award-card:hover {
+      border-color: rgba(75,44,110,0.3);
+      transform: translateY(-3px);
+    }
+
+    .award-icon { font-size: 1.8rem; margin-bottom: 12px; }
+
+    .award-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--deep);
+      font-weight: 600;
+    }
+
+    .award-card p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--purple);
+      color: white;
+      text-align: center;
+    }
+
+    #contact .section-label { color: rgba(255,255,255,0.6); }
+    #contact .section-title { color: white; }
+    #contact .section-desc { color: rgba(255,255,255,0.7); margin: 0 auto; }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: white;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      margin-top: 36px;
+    }
+
+    .contact-link:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--deep);
+      padding: 24px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.75rem;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      section { padding: 70px 24px; }
+      .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 40px; }
+      .hero-ornament, .hero-ornament-2 { display: none; }
+      .about-grid, .reg-grid, .mri-grid, .fit-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 20px; }
+      footer { flex-direction: column; gap: 8px; padding: 20px 24px; text-align: center; }
+      .divider { margin: 0 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Laxmi Hulyalkar · PhD Applicant</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#regulatory">Regulatory</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#mri">MRI Safety</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#fit">Lab Fit</a></li>
+    <li><a href="#contact" class="nav-cta">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ornament"></div>
+  <div class="hero-ornament-2"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">Proposal to Dr. Rad · Northwestern Engineering</div>
+    <h1>PhD Applicant<br><em>Laxmi Hulyalkar</em></h1>
+    <p class="hero-sub">
+      R&D Engineer with hands-on MRI safety simulation, ASME V&V 40 credibility methodology,
+      FDA Pre-Submission engagement, and patient-specific device validation experience —
+      purpose-built for Dr. Rad's computational MRI safety research.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">$350K</div>
+        <div class="stat-label">Cost Savings via In-House MRI Sim</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1.5T/3T</div>
+        <div class="stat-label">MRI Fields Simulated</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">n=34</div>
+        <div class="stat-label">Patient Samples Validated</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2</div>
+        <div class="stat-label">FDA Clearances Managed</div>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a href="#fit" class="btn-primary">↓ See Lab Alignment</a>
+      <a href="https://linkedin.com/in/laxmidh" target="_blank" class="btn-secondary">🔗 LinkedIn</a>
+    </div>
+  </div>
+
+  <!-- Alignment Table -->
+  <div class="hero-table-wrap">
+    <div class="hero-table-label">Research Alignment — Dr. Rad's Lab vs. My Experience</div>
+    <table class="align-table">
+      <thead>
+        <tr>
+          <th>Dr. Rad's Research Area</th>
+          <th>My Relevant Experience</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Computational modeling of biomedical systems</td>
+          <td>MRI safety simulations (1.5T/3T) using ANSYS HFSS & Mechanical for SAR, EM interaction, and device heating analysis</td>
+        </tr>
+        <tr>
+          <td>Verification, Validation & Uncertainty Quantification (VVUQ)</td>
+          <td>Led simulation credibility efforts aligned with ASME V&V 40; authored verification and validation reports for FDA Pre-Submission</td>
+        </tr>
+        <tr>
+          <td>Patient-specific / imaging-based modeling</td>
+          <td>3D anatomical modeling, mesh optimization from medical imaging data, and ICP-based fit validation (n=34)</td>
+        </tr>
+        <tr>
+          <td>Translational applications & clinical impact</td>
+          <td>FDA Pre-Sub and 510(k) submissions; MRI labeling and risk classification (MR Conditional) per IEC 60601-2-33</td>
+        </tr>
+        <tr>
+          <td>Medical device simulation & regulatory science</td>
+          <td>Extensive experience with FDA-facing simulation, regulatory documentation, and compliance (IEC, ASTM, ISO standards)</td>
+        </tr>
+        <tr>
+          <td>Data-driven validation & model accuracy</td>
+          <td>ICP-based algorithmic validation for anatomical alignment and design accuracy assessment</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">Background</div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <h2 class="section-title">Simulation, Validation &<br><em>Regulatory Science</em> — Combined</h2>
+      <p>
+        I'm a Biomedical/Mechanical Engineer at <strong>KLS Martin Group</strong>, where I built
+        and led in-house MRI safety simulation capability using <strong>ANSYS HFSS and
+        Mechanical</strong> — covering 1.5T/3T field interactions, SAR estimation, B1+ field
+        analysis, and device heating per ASTM F2182, F2052, and F2503.
+      </p>
+      <p>
+        I served as the <strong>technical simulation SME in an FDA Pre-Submission
+        teleconference</strong>, authoring credibility assessments and verification evidence
+        reports under the <strong>ASME V&V 40</strong> framework — the same standard central
+        to Dr. Rad's lab's approach to computational model credibility.
+      </p>
+      <p>
+        At the <strong>Arany Lab (SUNY Buffalo)</strong>, I built a patient-specific device
+        pipeline: medical imaging → mesh optimization → SLA/DLP 3D printing → ICP-based
+        anatomical fit validation (n=34, p&gt;0.05). I'm ready to bring this
+        full-stack computational validation experience into Dr. Rad's MRI safety research.
+      </p>
+    </div>
+    <div class="reveal" style="transition-delay:0.12s">
+      <div class="skills-grid">
+        <div class="skill-chip">ANSYS HFSS</div>
+        <div class="skill-chip">ANSYS Mechanical</div>
+        <div class="skill-chip">MRI Safety (1.5T/3T)</div>
+        <div class="skill-chip">SAR Estimation</div>
+        <div class="skill-chip">B1+ Field Analysis</div>
+        <div class="skill-chip">ASME V&V 40</div>
+        <div class="skill-chip">FDA Pre-Sub & 510(k)</div>
+        <div class="skill-chip">IEC 60601-2-33</div>
+        <div class="skill-chip">ASTM F2182/F2052/F2503</div>
+        <div class="skill-chip">ICP Algorithm</div>
+        <div class="skill-chip">3D Anatomical Modeling</div>
+        <div class="skill-chip">Mesh Optimization</div>
+        <div class="skill-chip">SLA / DLP 3D Printing</div>
+        <div class="skill-chip">ISO 13485 / 14971</div>
+        <div class="skill-chip">FEA / Structural Analysis</div>
+        <div class="skill-chip">MATLAB / SolidWorks</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- REGULATORY -->
+<section id="regulatory">
+  <div class="section-label">FDA & Regulatory Science</div>
+  <h2 class="section-title reveal">Regulatory Experience</h2>
+  <p class="section-desc reveal">Rare pre-PhD regulatory depth — from FDA Pre-Submission teleconference participation to dual 510(k) clearances and ASME V&V 40 model credibility documentation.</p>
+
+  <div class="reg-grid">
+    <div class="card reveal">
+      <div class="card-meta">KLS Martin Group · 2025 — As Technical Simulation SME</div>
+      <h3>FDA Pre-Submission (Pre-Sub)</h3>
+      <ul>
+        <li>Served as ANSYS simulation SME and technical lead for FDA Pre-Sub supporting in-house MRI safety simulation capability</li>
+        <li>Conducted 1.5T/3T MRI safety simulations — SAR estimation, B1+ field interaction, device heating per ASTM F2182, F2052, F2503</li>
+        <li>Authored credibility assessment and verification evidence reports aligned with ASME V&V 40</li>
+        <li>Participated in FDA Pre-Sub teleconference as technical simulation SME, directly addressing all FDA reviewer questions on MRI simulation methodology</li>
+        <li>Attended VVUQ conferences to stay current with evolving computational modeling standards for medical devices</li>
+      </ul>
+      <div style="margin-top:14px">
+        <span class="tag">ASME V&V 40</span>
+        <span class="tag">ASTM F2182</span>
+        <span class="tag">IEC 60601-2-33</span>
+        <span class="tag tag-gold">MR Conditional</span>
+      </div>
+    </div>
+
+    <div class="card reveal" style="transition-delay:0.1s">
+      <div class="card-meta">KLS Martin Group · 2025 — Pure Pectus System</div>
+      <h3>FDA 510(k) Clearance ×2</h3>
+      <ul>
+        <li>Led end-to-end development of thoracic surgical instruments from concept through FDA 510(k) clearance</li>
+        <li>Owned all engineering deliverables: engineering drawings, DV&V documentation, sterilization, and regulatory compliance evidence</li>
+        <li>Authored surgical technique guides for thoracic surgery procedures in collaboration with clinical stakeholders</li>
+        <li>Managed design transfer from R&D to manufacturing with full validation evidence and production-aligned test methods</li>
+      </ul>
+      <div style="margin-top:14px">
+        <span class="tag">ISO 13485</span>
+        <span class="tag">DV&V</span>
+        <span class="tag tag-gold">Design Transfer</span>
+        <span class="tag">510(k)</span>
+      </div>
+    </div>
+
+    <div class="card reveal" style="transition-delay:0.15s">
+      <div class="card-meta">KLS Martin Group — Design Control</div>
+      <h3>Sustainment Engineering & Design Control</h3>
+      <ul>
+        <li>Executed <strong>55+ ECNs</strong> with full Design History File corrections and traceability per ISO 13485</li>
+        <li>Root cause analysis on <strong>411 complaint investigations</strong> — tolerance stack-ups, CAD review, material and geometry failure analysis</li>
+        <li>Provided CAPA actions and risk mitigation inputs per ISO 14971</li>
+        <li>Executed IQ/OQ/PQ process and test method validations for product changes and sustaining activities</li>
+      </ul>
+      <div style="margin-top:14px">
+        <span class="tag">ISO 14971</span>
+        <span class="tag">CAPA</span>
+        <span class="tag">IQ/OQ/PQ</span>
+        <span class="tag tag-gold">FMEA/PFMEA</span>
+      </div>
+    </div>
+
+    <div class="card reveal" style="transition-delay:0.2s">
+      <div class="card-meta">Cadaver Lab & Clinical Translation</div>
+      <h3>Hands-On Clinical Experience</h3>
+      <ul>
+        <li>Built deep product-use understanding through <strong>cadaver lab work</strong> at KLS Martin Group, directly testing surgical instruments in anatomical conditions</li>
+        <li>Translated clinical feedback from cadaveric testing into design improvements and DFM proposals</li>
+        <li>Experience bridging the gap between engineering simulation outputs and clinical device behavior</li>
+        <li>Lean Six Sigma Green Belt — DMAIC, Kaizen, 5S applied across product development</li>
+      </ul>
+      <div style="margin-top:14px">
+        <span class="tag">Cadaveric Testing</span>
+        <span class="tag">DFM</span>
+        <span class="tag tag-gold">Six Sigma Green Belt</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Work History</div>
+  <h2 class="section-title reveal">Professional Experience</h2>
+  <p class="section-desc reveal">Three roles spanning MRI safety simulation, medical device NPD, academic research, and mechanical design — all converging on computational validation for medical devices.</p>
+
+  <div class="timeline reveal">
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <div class="timeline-role">R&D Engineer I</div>
+        <div class="timeline-period">Jan 2025 – Present</div>
+      </div>
+      <div class="timeline-org">KLS Martin Group · Jacksonville, FL</div>
+      <div class="card" style="margin-bottom:0">
+        <ul>
+          <li>Led in-house MRI safety simulation capability — achieving <strong>$350K cost savings</strong> by reducing external testing dependency</li>
+          <li>ANSYS HFSS and Mechanical simulations at 1.5T/3T: SAR estimation, B1+ field interaction, device heating per ASTM F2182, F2052, F2503, and IEC 60601-2-33</li>
+          <li>Technical simulation SME in FDA Pre-Submission teleconference; authored ASME V&V 40-aligned model credibility and verification reports</li>
+          <li>Managed two end-to-end FDA 510(k) submissions for thoracic surgical instruments</li>
+          <li>Executed 55+ ECNs and root-caused 411 complaint investigations via tolerance analysis, CAD, and material/geometry review</li>
+          <li>Received <strong>Star Employee Award 2025</strong> for outstanding contributions across MRI safety, 510(k), and cross-functional engineering</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <div class="timeline-role">Research Assistant</div>
+        <div class="timeline-period">Jan 2024 – Dec 2024</div>
+      </div>
+      <div class="timeline-org">The Arany Lab, School of Dental Medicine · SUNY Buffalo</div>
+      <div class="card" style="margin-bottom:0">
+        <ul>
+          <li>Mesh generation and optimization for complex 3D anatomical geometries from medical imaging data</li>
+          <li>Fabricated craniofacial prosthetics using SLA and DLP 3D printing for rapid prototyping workflows</li>
+          <li>Implemented ICP (Iterative Closest Point) algorithm for automated anatomical alignment and fit validation (n=34, p&gt;0.05)</li>
+          <li>Co-authored peer-reviewed manuscript; served as ad hoc peer reviewer for PeerJ (2025)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <div class="timeline-role">Mechanical Design Engineer</div>
+        <div class="timeline-period">Feb 2022 – Apr 2023</div>
+      </div>
+      <div class="timeline-org">Larsen & Toubro Technology Services · India</div>
+      <div class="card" style="margin-bottom:0">
+        <ul>
+          <li>Designed and analyzed 150+ polymer and metal components applying ASME GD&T standards</li>
+          <li>Managed large-scale BOMs (450+ components) using Windchill PLM for traceability and revision control</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- MRI SAFETY -->
+<section id="mri">
+  <div class="section-label">Core Capability</div>
+  <h2 class="section-title reveal">MRI Safety Simulation</h2>
+  <p class="section-desc reveal">The exact simulation and regulatory framework Dr. Rad's lab uses — already built and deployed in an FDA-facing context.</p>
+
+  <div class="mri-grid">
+    <div class="card reveal">
+      <div class="card-meta">ANSYS HFSS</div>
+      <h3>Electromagnetic Field Simulation</h3>
+      <ul>
+        <li>Full-wave EM simulation of MRI RF coil interactions with implanted devices at 1.5T (64 MHz) and 3T (128 MHz)</li>
+        <li>B1+ field mapping and SAR distribution analysis around device geometries</li>
+        <li>Compliance with ASTM F2182 (device heating), F2052 (magnetically induced displacement), and F2503 (MR labeling)</li>
+        <li>Model credibility documentation following ASME V&V 40 verification and validation framework</li>
+      </ul>
+      <div style="margin-top:14px">
+        <span class="tag">ANSYS HFSS</span>
+        <span class="tag">SAR</span>
+        <span class="tag">B1+ Field</span>
+        <span class="tag tag-gold">ASTM F2182</span>
+      </div>
+    </div>
+
+    <div class="card reveal" style="transition-delay:0.1s">
+      <div class="card-meta">ANSYS Mechanical</div>
+      <h3>Structural FEA & Thermal Analysis</h3>
+      <ul>
+        <li>Structural FEA for four-point bending, torque, and screw pull-out test simulations — corroborated by ASTM-aligned physical testing</li>
+        <li>Thermal analysis for RF-induced device heating assessment in tissue-simulating phantoms</li>
+        <li>Used simulation outputs to guide design iterations, reducing physical prototype cycles</li>
+        <li>ASME V&V 40 framework applied to document model credibility and simulation evidence for regulatory submissions</li>
+      </ul>
+      <div style="margin-top:14px">
+        <span class="tag">ANSYS Mechanical</span>
+        <span class="tag">FEA</span>
+        <span class="tag">Thermal Analysis</span>
+        <span class="tag tag-gold">ASME V&V 40</span>
+      </div>
+    </div>
+
+    <div class="card reveal" style="transition-delay:0.15s">
+      <div class="card-meta">Regulatory Integration</div>
+      <h3>MRI Labeling & Risk Classification</h3>
+      <ul>
+        <li>Supported MRI labeling decisions and risk-based safety classification (MR Conditional) per IEC 60601-2-33</li>
+        <li>Authored credibility assessment reports — translating computational evidence into regulatory-ready documentation</li>
+        <li>Direct FDA Pre-Sub engagement as technical SME — addressed reviewer questions on simulation methodology live</li>
+        <li>Industry partners in Dr. Rad's ecosystem (Siemens, Abbott, Medtronic, Boston Scientific) overlap with KLS Martin's regulatory framework</li>
+      </ul>
+      <div style="margin-top:14px">
+        <span class="tag">IEC 60601-2-33</span>
+        <span class="tag">MR Conditional</span>
+        <span class="tag tag-gold">FDA Pre-Sub</span>
+        <span class="tag">Risk Classification</span>
+      </div>
+    </div>
+
+    <div class="card reveal" style="transition-delay:0.2s">
+      <div class="card-meta">VVUQ — Verification, Validation & Uncertainty Quantification</div>
+      <h3>ASME V&V 40 Framework</h3>
+      <ul>
+        <li>Led all ASME V&V 40 compliance activities for in-house MRI simulation program at KLS Martin Group</li>
+        <li>Attended dedicated VVUQ conferences to stay current with evolving computational modeling standards for medical devices</li>
+        <li>Authored model credibility assessment and verification evidence reports supporting FDA Pre-Submission package</li>
+        <li>Directly applicable to Dr. Rad's research on simulation-guided MRI safety assessment and model validation</li>
+      </ul>
+      <div style="margin-top:14px">
+        <span class="tag">ASME V&V 40</span>
+        <span class="tag">VVUQ</span>
+        <span class="tag tag-gold">Model Credibility</span>
+        <span class="tag">Uncertainty Quantification</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-label">Publications & Research</div>
+  <h2 class="section-title reveal">Research & ICP Innovation</h2>
+  <p class="section-desc reveal">Peer-reviewed publication, active peer reviewer status, and a novel patient-specific computational workflow combining 3D printing with algorithmic fit validation.</p>
+
+  <div class="research-card reveal">
+    <span class="tag" style="margin-bottom:14px;display:inline-block">Manuscript Under Review · 2025</span>
+    <div class="research-title">
+      Reverse Engineering Developmental Defects: A Globally-Accessible Digital Approach for Nasoalveolar Molding in Neonatal Unilateral Cleft Lip and Palate
+    </div>
+    <div class="research-authors">
+      Genovesi, E.; Canallatos, J.; Atalla, D.; <strong>Hulyalkar, L.</strong>; Markiewicz, M.; Arany, P. — Conference poster presented, 2024
+    </div>
+    <div class="research-abstract">
+      Validated a fully digital workflow for fabricating Nasoalveolar Molding (NAM) plates using open-source CAD and 3D printing
+      for neonates with unilateral cleft lip and palate. Surface accuracy assessment (n=34, p&gt;0.05) demonstrated no significant
+      difference between digital and traditional methods. FEA confirmed improved flexural strength in 3D-printed NAMs.
+      Work demonstrates ability to translate computational simulation findings into clinically validated, patient-specific outcomes.
+    </div>
+    <div style="margin-top:20px">
+      <span class="tag">3D Printing</span>
+      <span class="tag">FEA Validation</span>
+      <span class="tag">Patient-Specific</span>
+      <span class="tag tag-gold">n=34 Statistical Validation</span>
+      <span class="tag">Open-Source CAD</span>
+    </div>
+  </div>
+
+  <div class="icp-highlight reveal">
+    <h3>⚡ ICP Algorithm — Patient-Specific Fit Validation</h3>
+    <p>
+      Implemented Iterative Closest Point (ICP) algorithm to automate anatomical alignment and quantify
+      device fit accuracy against patient anatomy — validated across 34 patient samples (p&gt;0.05).
+      This data-driven computational validation approach maps directly to Dr. Rad's lab's focus on
+      imaging-based modeling and model accuracy assessment for patient-specific medical device applications.
+    </p>
+    <div class="icp-stats">
+      <div class="icp-stat">
+        <div class="icp-stat-num">n=34</div>
+        <div class="icp-stat-label">Patient Samples</div>
+      </div>
+      <div class="icp-stat">
+        <div class="icp-stat-num">p&gt;0.05</div>
+        <div class="icp-stat-label">Statistically Validated</div>
+      </div>
+      <div class="icp-stat">
+        <div class="icp-stat-num">ICP</div>
+        <div class="icp-stat-label">Algorithm Implemented</div>
+      </div>
+      <div class="icp-stat">
+        <div class="icp-stat-num">VVUQ</div>
+        <div class="icp-stat-label">Direct Lab Relevance</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card reveal" style="margin-top:20px">
+    <div class="card-meta">Peer Review Activity</div>
+    <h3>Ad hoc Peer Reviewer — PeerJ · 2025</h3>
+    <ul>
+      <li>Invited as peer reviewer for PeerJ — multidisciplinary open-access journal covering biomedical engineering and life sciences</li>
+      <li>Demonstrates recognition as a credible expert capable of evaluating scientific work at a publication level from day one in the lab</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- FIT -->
+<section id="fit">
+  <div class="section-label">Why Dr. Rad's Lab</div>
+  <h2 class="section-title reveal">Lab Alignment</h2>
+  <p class="section-desc reveal">Every major research thrust in Dr. Rad's lab maps to a demonstrated capability in my background — not aspirational goals, but real, deployed experience.</p>
+
+  <div class="fit-grid reveal">
+    <div class="fit-item">
+      <div class="fit-icon">🧲</div>
+      <div>
+        <h4>MRI Safety for Implants</h4>
+        <p>Deployed ANSYS HFSS & Mechanical for 1.5T/3T MRI safety — SAR, B1+, device heating — in an FDA-facing industrial context. Same tools, same standards as Dr. Rad's lab.</p>
+      </div>
+    </div>
+    <div class="fit-item">
+      <div class="fit-icon">✅</div>
+      <div>
+        <h4>VVUQ & ASME V&V 40</h4>
+        <p>Led credibility assessment and verification evidence under ASME V&V 40 for FDA Pre-Sub. Attended VVUQ conferences. This is rare at the PhD applicant stage.</p>
+      </div>
+    </div>
+    <div class="fit-item">
+      <div class="fit-icon">🧠</div>
+      <div>
+        <h4>Imaging-Based Modeling</h4>
+        <p>Medical imaging → mesh optimization → patient-specific device fabrication → ICP fit validation. A complete imaging-based modeling pipeline already built and validated.</p>
+      </div>
+    </div>
+    <div class="fit-item">
+      <div class="fit-icon">🏥</div>
+      <div>
+        <h4>FDA Regulatory Engagement</h4>
+        <p>Live FDA Pre-Sub teleconference as technical SME + two 510(k) clearances. Understanding of how computational models translate to regulatory decisions is already in place.</p>
+      </div>
+    </div>
+    <div class="fit-item">
+      <div class="fit-icon">🤝</div>
+      <div>
+        <h4>Industry-Academia Bridge</h4>
+        <p>Dr. Rad's lab partners directly with Siemens, Abbott, Medtronic, and FDA. My industry MRI simulation experience is a direct entry point into those collaborations.</p>
+      </div>
+    </div>
+    <div class="fit-item">
+      <div class="fit-icon">📄</div>
+      <div>
+        <h4>Research Publication Readiness</h4>
+        <p>Published peer-reviewed manuscript (under review) + active PeerJ reviewer = capable of contributing to Dr. Rad's research output pipeline from the start.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card reveal" style="margin-top:28px">
+    <h3>How I Can Contribute to Dr. Rad's Lab from Day One</h3>
+    <ul>
+      <li>Build and validate ANSYS HFSS electromagnetic models for MRI-implant interaction studies (DBS leads, cardiac devices) at 1.5T and 3T</li>
+      <li>Apply ASME V&V 40 VVUQ methodology to document model credibility for FDA-facing and publication-quality simulation work</li>
+      <li>Support imaging-based patient-specific modeling pipelines with mesh generation, anatomical modeling, and algorithmic fit validation</li>
+      <li>Contribute regulatory science expertise to lab's FDA collaboration and Pre-Sub engagement activities</li>
+      <li>Bring industry-validated MRI safety simulation protocols that complement and accelerate academic research timelines</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="section-label">Recognition</div>
+  <h2 class="section-title reveal">Awards & Credentials</h2>
+  <div class="awards-row reveal">
+    <div class="award-card">
+      <div class="award-icon">⭐</div>
+      <h4>Star Employee Award</h4>
+      <p>KLS Martin Group · 2025<br>Outstanding contributions across MRI safety simulation, 510(k) regulatory submissions, and cross-functional engineering.</p>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">📝</div>
+      <h4>Ad hoc Peer Reviewer</h4>
+      <p>PeerJ · 2025<br>Invited reviewer — recognized by the research community as a credible expert in biomedical engineering.</p>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">🎓</div>
+      <h4>Master's in Bioengineering</h4>
+      <p>SUNY Buffalo<br>Focused on computational biomechanics, 3D printing, and patient-specific device design and validation.</p>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">⚙️</div>
+      <h4>Lean Six Sigma Green Belt</h4>
+      <p>DMAIC / Kaizen / 5S<br>Quality engineering methodology applied across product development and sustaining engineering workflows.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get In Touch</div>
+  <h2 class="section-title reveal">Let's Connect</h2>
+  <p class="section-desc reveal">
+    I'd welcome the opportunity to speak with Dr. Rad about her current research directions and discuss
+    how my MRI safety simulation, VVUQ, and FDA regulatory background can contribute to the lab's goals.
+  </p>
+  <a href="https://linkedin.com/in/laxmidh" target="_blank" class="contact-link reveal">
+    🔗 Connect on LinkedIn — linkedin.com/in/laxmidh
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Laxmi Hulyalkar — PhD Applicant, Dr. Rad's Lab · Northwestern Engineering</span>
+  <span>Jacksonville, FL</span>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 55);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
